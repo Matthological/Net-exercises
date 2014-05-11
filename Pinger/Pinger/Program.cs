@@ -22,7 +22,6 @@ namespace Pinger
 
     class Ping_Pong
     {
-        static UInt16 checksum = 0;
 
         static UInt16 ChecksumIMCP(byte[] data, int dataSize)
         {
@@ -36,7 +35,7 @@ namespace Pinger
             }
 
             total = (total & 0x0000FFFF) + ((total & 0xFFFF0000) / 65536);
-            checksum = (UInt16) ~total;
+            UInt16 checksum = (UInt16)~total;
             return checksum;
         }
 
